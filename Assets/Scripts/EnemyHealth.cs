@@ -23,7 +23,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage( float damage)
     {
         current_hp -= damage;
-        if (current_hp<= 0)
+        if (current_hp <= 0)
         {
             Destroy(gameObject);
         }

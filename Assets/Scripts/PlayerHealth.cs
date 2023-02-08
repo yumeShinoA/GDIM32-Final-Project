@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public static event Action OnPlayerDeath;
     public float m_StartingHealth = 100f;
     public bool m_Dead;
     public float m_CurrentHealth;
@@ -34,5 +36,7 @@ public class PlayerHealth : MonoBehaviour
     private void OnDeath()
     {
         m_Dead = true;
+        OnPlayerDeath?.Invoke();
+        gameObject.SetActive(false);
     }
 }
