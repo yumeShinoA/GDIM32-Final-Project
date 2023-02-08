@@ -14,7 +14,8 @@ public abstract class Enemy : MonoBehaviour {
 
     [SerializeField] protected LayerMask Player;
     protected Rigidbody2D rb;
-    protected Animator anim;
 
-    protected bool dead = false;
+
+    protected PlayerHealth PlayerHealth;
+    protected Animator anim;
 }
