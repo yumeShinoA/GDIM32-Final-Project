@@ -34,5 +34,6 @@ public class PlayerHealth : MonoBehaviour
     private void OnDeath()
     {
         m_Dead = true;
+        // other dying actions here
     }
 }
