@@ -5,13 +5,16 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public float current_hp;
-    public float max_hp = 3f;
-
+    public float max_hp;
+    public EnemyHealthBarManager hpbar;
 
     // Start is called before the first frame update
     void Start()
     {
         current_hp = max_hp;
+        hpbar.changeHealth(current_hp, max_hp);
+
+
     }
 
     // Update is called once per frame
@@ -27,5 +30,6 @@ public class EnemyHealth : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        hpbar.changeHealth(current_hp, max_hp);
     }
 }
