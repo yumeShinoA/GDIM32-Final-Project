@@ -36,7 +36,11 @@ public class PlayerHealth : MonoBehaviour
     private void OnDeath()
     {
         m_Dead = true;
+<<<<<<< HEAD
         OnPlayerDeath?.Invoke();
         gameObject.SetActive(false);
+=======
+        // other dying actions here
+>>>>>>> d142764a1fda7ea9ac656dc46ecfdb9a63ce81c7
     }
 }

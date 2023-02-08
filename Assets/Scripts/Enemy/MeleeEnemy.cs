@@ -39,7 +39,9 @@ public class MeleeEnemy : Enemy
         isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, Player);
         isInAttackRange = Physics2D.OverlapCircle(transform.position, attackRadius, Player);
 
-        
+        if(!dead && health <= 0f) {
+            onDeath();
+        }
 
     }
 
@@ -61,5 +63,11 @@ public class MeleeEnemy : Enemy
                 canAttack += Time.deltaTime;
             }
         }
+    }
+
+    private void onDeath()
+    {
+        dead = true;
+        // other dying actions here
     }
 }
