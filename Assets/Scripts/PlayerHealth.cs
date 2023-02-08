@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     public float m_StartingHealth = 100f;
-    private bool m_Dead;
-    private float m_CurrentHealth;
+    public bool m_Dead;
+    public float m_CurrentHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +25,7 @@ public class PlayerHealth : MonoBehaviour
     {
         m_CurrentHealth -= amount;
         Debug.Log(m_CurrentHealth);
-        if (m_CurrentHealth <= 0f && !m_Dead)
+        if ((m_CurrentHealth <= 0f) && !(m_Dead))
         {
             OnDeath();
         }
