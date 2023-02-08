@@ -34,27 +34,28 @@ public class MeleeEnemy : Enemy
 
     private void Update()
     {
-        //anim.SetBool("Walk", isInChaseRange);      Animation needs fixing
+        //anim.SetBool("Run", isInChaseRange);  Needs to link animation
 
         isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, Player);
         isInAttackRange = Physics2D.OverlapCircle(transform.position, attackRadius, Player);
 
-        if (isInChaseRange) {
-            agent.SetDestination(target.position);
-        }
+        
 
     }
 
     private void FixedUpdate()
     {
-        
+        if (isInChaseRange) {
+            agent.SetDestination(target.position);
+        }
     }
 
     private void OnCollisionStay2D(Collision2D other)
     {
         if(other.gameObject.tag == "Player") {
             if(coolDown <= canAttack) {
-                //other.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
+                // play attack animation here
+                other.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
                 canAttack = 0;
             } else {
                 canAttack += Time.deltaTime;

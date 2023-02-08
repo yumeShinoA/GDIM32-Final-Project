@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 440035913}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,8 @@ GameObject:
   - component: {fileID: 1568598735}
   - component: {fileID: 1568598738}
   - component: {fileID: 2092256913}
-  m_Layer: 0
+  - component: {fileID: 2092256918}
+  m_Layer: 6
   m_Name: Human
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -165,6 +166,19 @@ MonoBehaviour:
   projectilePrefab: {fileID: 2669194366949490631, guid: 9c20772f343c23f428d3ba4bd084ca6f, type: 3}
   firePoint: {fileID: 440035913}
   m_LaunchForce: 20
+--- !u!114 &2092256918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5272552499143439441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1a277d40c1d49742bed6b30836d5978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StartingHealth: 100
 --- !u!1 &5272552500058403403
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,7 +190,7 @@ GameObject:
   - component: {fileID: 5272552500058403400}
   - component: {fileID: 5272552500058403401}
   - component: {fileID: 5272552500058403406}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5272552500311877900}
   - component: {fileID: 5272552500311877901}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
