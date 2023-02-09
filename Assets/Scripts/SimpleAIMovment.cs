@@ -8,14 +8,14 @@ public class SimpleAIMovment : MonoBehaviour
     [SerializeField] Transform target;
     NavMeshAgent agent;
 
-    void Start()
+    void Start() // Start is called before first frame update
     {
-        agent = GetComponent<NavMeshAgent>();
-        agent.updateRotation = false;
+        agent = GetComponent<NavMeshAgent>(); 
+        agent.updateRotation = false; // Falsefying the update on rotation to allow agent to rotate freely
         agent.updateUpAxis = false;
     }
 
-    void Update()
+    void Update() // Update is called once per frame
     {
         agent.SetDestination(target.position);
     }

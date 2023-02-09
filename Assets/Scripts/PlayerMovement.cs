@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-        if(Input.GetKeyDown(KeyCode.Space) && dashCoolCounter <= 0)
+        if(Input.GetKeyDown(KeyCode.Space) && dashCoolCounter <= 0) // If the dash cooldown is less down or equal to 0 then dash is available/usable
         {
             dash = true;
         }
@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
         rb.rotation = angle;
 
-        if(dash)
+        if(dash) // If statements allow the player to dash when having atleast one dashcounter, but setting dash at false when having 0 dashcounters
         {
             if(dashCoolCounter <= 0 && dashCounter <= 0)
             {
