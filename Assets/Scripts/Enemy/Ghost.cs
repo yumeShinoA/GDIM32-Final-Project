@@ -41,8 +41,10 @@ public class Ghost : Enemy
 
         if (isInAttackRange) {
             this.GetComponent<BoxCollider2D>().enabled = true;
+            this.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         } else {
             this.GetComponent<BoxCollider2D>().enabled = false;
+            this.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.3f);
         }
     }
 
@@ -53,10 +55,12 @@ public class Ghost : Enemy
         }
     }
 
+    /*
     private void OnTriggerEnter2D(Collider2D other)
     {
         this.GetComponent<BoxCollider2D>().enabled = false;
     }
+    */
 
     private void OnCollisionStay2D(Collision2D other)
     {

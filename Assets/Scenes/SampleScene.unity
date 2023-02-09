@@ -12922,6 +12922,22 @@ PrefabInstance:
       propertyPath: current_hp
       value: 300
       objectReference: {fileID: 0}
+    - target: {fileID: 6190497226556468768, guid: 893e5e048d5a4054f9f53ef7a337bb88, type: 3}
+      propertyPath: m_Color.a
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190497226556468768, guid: 893e5e048d5a4054f9f53ef7a337bb88, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190497226556468768, guid: 893e5e048d5a4054f9f53ef7a337bb88, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190497226556468768, guid: 893e5e048d5a4054f9f53ef7a337bb88, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6190497226556468769, guid: 893e5e048d5a4054f9f53ef7a337bb88, type: 3}
       propertyPath: m_RootOrder
       value: 8
