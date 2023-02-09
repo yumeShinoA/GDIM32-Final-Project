@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MeleeEnemy : Enemy
+public class Ghost : Enemy
 {
+    
     [SerializeField] private float attackRadius;
 
     [SerializeField] private bool shouldRotate;
@@ -38,6 +39,11 @@ public class MeleeEnemy : Enemy
         isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, Player);
         isInAttackRange = Physics2D.OverlapCircle(transform.position, attackRadius, Player);
 
+        if (isInAttackRange) {
+            this.GetComponent<BoxCollider2D>().enabled = true;
+        } else {
+            this.GetComponent<BoxCollider2D>().enabled = false;
+        }
     }
 
     private void FixedUpdate()
@@ -47,10 +53,15 @@ public class MeleeEnemy : Enemy
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        this.GetComponent<BoxCollider2D>().enabled = false;
+    }
+
     private void OnCollisionStay2D(Collision2D other)
     {
-        if(other.gameObject.tag == "Player") {
-            if(coolDown <= canAttack) {
+        if (other.gameObject.tag == "Player") {
+            if (coolDown <= canAttack) {
                 // play attack animation here
                 other.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
                 canAttack = 0;

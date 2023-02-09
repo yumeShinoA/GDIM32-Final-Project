@@ -18,4 +18,7 @@ public abstract class Enemy : MonoBehaviour {
 
     protected PlayerHealth PlayerHealth;
     protected Animator anim;
+
+    [SerializeField]
+    protected float checkRadius;
 }
