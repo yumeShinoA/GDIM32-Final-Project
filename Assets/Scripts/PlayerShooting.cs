@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
-    public GameObject projectilePrefab;
-    public Transform firePoint;
-    public float m_LaunchForce = 20f;
+    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private float m_LaunchForce = 20f;
 
     // Start is called before the first frame update
     void Start()

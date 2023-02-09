@@ -5,23 +5,23 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public float moveSpeed = 5f;
-    static public float debuffMoveSpeed;
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] static public float debuffMoveSpeed;
 
-    public Rigidbody2D rb;
-    public Camera cam;
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Camera cam;
 
     Vector2 mousePos;
     Vector2 movement;
 
     private float activeMoveSpeed;
-    public float dashSpeed;
-    public float dashLength = .5f, dashCooldown = 1f;
+    [SerializeField] private float dashSpeed;
+    [SerializeField] private float dashLength = .5f, dashCooldown = 1f;
 
-    private float dashCounter;
-    private float dashCoolCounter;
+    [SerializeField] private float dashCounter;
+    [SerializeField] private float dashCoolCounter;
 
-    private bool dash = false;
+    [SerializeField] private bool dash = false;
 
     private void Start()
     {
@@ -75,5 +75,10 @@ public class PlayerMovement : MonoBehaviour
         {
             dashCoolCounter -= Time.fixedDeltaTime;
         }
+    }
+    public void IncreaseSpeed(float speed)
+    {
+        moveSpeed += speed;
+        gameObject.SetActive(true);
     }
 }

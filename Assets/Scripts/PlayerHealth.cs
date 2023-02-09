@@ -6,11 +6,11 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public Image HealthBar;
-    public static event Action OnPlayerDeath;
-    public float m_StartingHealth = 100f;
-    public bool m_Dead;
-    public float m_CurrentHealth;
+    [SerializeField] private Image HealthBar;
+    [SerializeField] public static event Action OnPlayerDeath;
+    [SerializeField] private float m_StartingHealth = 100f;
+    [SerializeField] private bool m_Dead;
+    [SerializeField] private float m_CurrentHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -41,5 +41,12 @@ public class PlayerHealth : MonoBehaviour
         m_Dead = true;
         OnPlayerDeath?.Invoke();
         gameObject.SetActive(false);
+    }
+    
+    public void addHp(float amount)
+    {
+        m_StartingHealth += 30;
+        m_CurrentHealth += 30;
+        gameObject.SetActive(true);
     }
 }
