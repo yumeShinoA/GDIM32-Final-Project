@@ -39,6 +39,7 @@ public class Ghost : BaseEnemy
         isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, Player);
         isInAttackRange = Physics2D.OverlapCircle(transform.position, attackRadius, Player);
 
+        // Enable collider when player is in attack range, and change opacity
         if (isInAttackRange) {
             this.GetComponent<BoxCollider2D>().enabled = true;
             this.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
@@ -65,12 +66,12 @@ public class Ghost : BaseEnemy
     private void OnCollisionStay2D(Collision2D other)
     {
         if (other.gameObject.tag == "Player") {
-            if (coolDown <= canAttack) {
+            if (coolDown <= canAttack) { // Attack Player
                 // play attack animation here
                 other.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
                 canAttack = 0;
             } else {
-                canAttack += Time.deltaTime;
+                canAttack += Time.deltaTime; // Enemy wait for cooldown
             }
         }
     }
