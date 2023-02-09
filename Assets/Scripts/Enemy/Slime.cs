@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Ghost : BaseEnemy
+public class Slime : BaseEnemy
 {
-    
     [SerializeField] private float attackRadius;
 
     [SerializeField] private bool shouldRotate;
@@ -15,6 +15,11 @@ public class Ghost : BaseEnemy
 
     private Vector2 movement;
     [SerializeField] private Vector3 dir;
+
+    private bool timerIsRunning;
+    private float timeRemaining;
+    [SerializeField] private float duration = 7f;
+    [SerializeField] private float debuffScale;
 
     private bool isInChaseRange;
     private bool isInAttackRange;
@@ -29,6 +34,7 @@ public class Ghost : BaseEnemy
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+        timeRemaining = duration;
 
     }
 
@@ -39,13 +45,16 @@ public class Ghost : BaseEnemy
         isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, Player);
         isInAttackRange = Physics2D.OverlapCircle(transform.position, attackRadius, Player);
 
-        if (isInAttackRange) {
-            this.GetComponent<BoxCollider2D>().enabled = true;
-            this.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-        } else {
-            this.GetComponent<BoxCollider2D>().enabled = false;
-            this.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.3f);
+        if (timerIsRunning) {
+            if (timeRemaining > 0) {
+                timeRemaining -= Time.deltaTime;
+            } else {
+                PlayerMovement.debuffMoveSpeed = 1f;
+                timeRemaining = duration;
+                timerIsRunning = false;
+            }
         }
+
     }
 
     private void FixedUpdate()
@@ -55,13 +64,6 @@ public class Ghost : BaseEnemy
         }
     }
 
-    /*
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        this.GetComponent<BoxCollider2D>().enabled = false;
-    }
-    */
-
     private void OnCollisionStay2D(Collision2D other)
     {
         if (other.gameObject.tag == "Player") {
@@ -69,6 +71,8 @@ public class Ghost : BaseEnemy
                 // play attack animation here
                 other.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
                 canAttack = 0;
+                PlayerMovement.debuffMoveSpeed = debuffScale;
+                timerIsRunning = true;
             } else {
                 canAttack += Time.deltaTime;
             }

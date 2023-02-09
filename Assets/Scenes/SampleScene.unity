@@ -441,11 +441,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6190497226556468769, guid: 893e5e048d5a4054f9f53ef7a337bb88, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 49.127323
+      value: 49.26
       objectReference: {fileID: 0}
     - target: {fileID: 6190497226556468769, guid: 893e5e048d5a4054f9f53ef7a337bb88, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.23
+      value: 14.41
       objectReference: {fileID: 0}
     - target: {fileID: 6190497226556468769, guid: 893e5e048d5a4054f9f53ef7a337bb88, type: 3}
       propertyPath: m_LocalPosition.z
@@ -483,7 +483,8 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 2092256912}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6190497226556468774, guid: 893e5e048d5a4054f9f53ef7a337bb88, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 893e5e048d5a4054f9f53ef7a337bb88, type: 3}
 --- !u!1 &239940029
 GameObject:
@@ -12255,6 +12256,42 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 827041798}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 850658309}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1891815848}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &604097844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12911,6 +12948,10 @@ PrefabInstance:
       value: skull-violet
       objectReference: {fileID: 0}
     - target: {fileID: 6190497226556468762, guid: 893e5e048d5a4054f9f53ef7a337bb88, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190497226556468762, guid: 893e5e048d5a4054f9f53ef7a337bb88, type: 3}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
@@ -12997,6 +13038,37 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 6190497226556468774, guid: 893e5e048d5a4054f9f53ef7a337bb88, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 893e5e048d5a4054f9f53ef7a337bb88, type: 3}
+--- !u!1 &827041798 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6190497226556468762, guid: 893e5e048d5a4054f9f53ef7a337bb88, type: 3}
+  m_PrefabInstance: {fileID: 109327511}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &827041806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827041798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0dd9edaf2fad844f9327f592db8462f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  damage: 10
+  speed: 10
+  coolDown: 1
+  Player:
+    serializedVersion: 2
+    m_Bits: 64
+  checkRadius: 15
+  attackRadius: 0
+  shouldRotate: 0
+  target: {fileID: 2092256912}
+  dir: {x: 0, y: 0, z: 0}
+  duration: 7
+  debuffScale: 0.5
 --- !u!1 &850658309
 GameObject:
   m_ObjectHideFlags: 0

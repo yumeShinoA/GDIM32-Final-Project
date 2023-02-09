@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public float moveSpeed = 5f;
+    static public float debuffMoveSpeed;
 
     public Rigidbody2D rb;
     public Camera cam;
@@ -25,11 +26,13 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         activeMoveSpeed = moveSpeed;
+        debuffMoveSpeed = 1f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //moveSpeed = activeMoveSpeed; // temp
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
@@ -43,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * activeMoveSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + movement * activeMoveSpeed * debuffMoveSpeed * Time.fixedDeltaTime);
 
         Vector2 lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;

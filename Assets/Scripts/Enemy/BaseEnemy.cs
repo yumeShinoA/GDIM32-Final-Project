@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Enemy : MonoBehaviour {
+public abstract class BaseEnemy : MonoBehaviour {
     [SerializeField]
     protected float health = 100f;
     [SerializeField]
