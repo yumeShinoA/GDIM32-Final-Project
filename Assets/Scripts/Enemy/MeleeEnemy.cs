@@ -25,7 +25,7 @@ public class MeleeEnemy : Enemy
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-
+        rb.isKinematic = true;
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
