@@ -25,6 +25,9 @@ public class Slime : BaseEnemy
     private bool isInAttackRange;
 
     private float canAttack;
+    [SerializeField] private GameObject PlayerChar;
+    static public GameObject childObject;
+    
 
     private void Start()
     {
@@ -35,6 +38,8 @@ public class Slime : BaseEnemy
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         timeRemaining = duration;
+
+        childObject = PlayerChar.transform.GetChild(0).gameObject;
 
     }
 
@@ -52,6 +57,8 @@ public class Slime : BaseEnemy
                 timeRemaining -= Time.deltaTime;
             } else {
                 PlayerMovement.debuffMoveSpeed = 1f; // return player speed back to original
+                // Change player color to original
+                childObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f);
                 timeRemaining = duration;
                 timerIsRunning = false;
             }
@@ -74,10 +81,18 @@ public class Slime : BaseEnemy
                 other.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
                 canAttack = 0;
                 PlayerMovement.debuffMoveSpeed = debuffScale; // change player speed based on debuffScale
+                childObject.GetComponent<SpriteRenderer>().color = new Color(143f, 0f, 254f); // change player color to purple
                 timerIsRunning = true;
             } else { // enemy attack cooldown
                 canAttack += Time.deltaTime;
             }
         }
+    }
+
+    // temporary, will move to player stat script
+    static public void diableDebuff(GameObject child)
+    {
+        PlayerMovement.debuffMoveSpeed = 1f;
+        child.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f);
     }
 }

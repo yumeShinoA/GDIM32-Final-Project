@@ -409,7 +409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6190497226556468762, guid: 893e5e048d5a4054f9f53ef7a337bb88, type: 3}
       propertyPath: m_Name
-      value: ooze-black
+      value: black Slime
       objectReference: {fileID: 0}
     - target: {fileID: 6190497226556468763, guid: 893e5e048d5a4054f9f53ef7a337bb88, type: 3}
       propertyPath: max_hp
@@ -441,11 +441,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6190497226556468769, guid: 893e5e048d5a4054f9f53ef7a337bb88, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 49.26
+      value: 48.63
       objectReference: {fileID: 0}
     - target: {fileID: 6190497226556468769, guid: 893e5e048d5a4054f9f53ef7a337bb88, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.41
+      value: 14.39
       objectReference: {fileID: 0}
     - target: {fileID: 6190497226556468769, guid: 893e5e048d5a4054f9f53ef7a337bb88, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13077,6 +13077,7 @@ MonoBehaviour:
   dir: {x: 0, y: 0, z: 0}
   duration: 7
   debuffScale: 0.5
+  PlayerChar: {fileID: 887688688}
 --- !u!1 &850658309
 GameObject:
   m_ObjectHideFlags: 0
@@ -14179,6 +14180,18 @@ PrefabInstance:
     - target: {fileID: 5272552499143439447, guid: cf6879ba03f6f5e4ab3ad5150b0ba076, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5272552500058403401, guid: cf6879ba03f6f5e4ab3ad5150b0ba076, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5272552500058403401, guid: cf6879ba03f6f5e4ab3ad5150b0ba076, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5272552500058403401, guid: cf6879ba03f6f5e4ab3ad5150b0ba076, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf6879ba03f6f5e4ab3ad5150b0ba076, type: 3}
