@@ -30,4 +30,8 @@ public class PlayerShooting : MonoBehaviour
         rb.AddForce(firePoint.up * m_LaunchForce, ForceMode2D.Impulse);
 
     }
+    public void ProjectileBuff(float bulletbuff)
+    {
+        m_LaunchForce += bulletbuff;
+    }
 }

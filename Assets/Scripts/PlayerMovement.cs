@@ -81,4 +81,10 @@ public class PlayerMovement : MonoBehaviour
         moveSpeed += speed;
         gameObject.SetActive(true);
     }
+
+    public void dashRangeBuff(float dashbuff)
+    {
+        dashSpeed += dashbuff;
+        gameObject.SetActive(true);
+    }
 }
