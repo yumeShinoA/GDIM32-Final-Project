@@ -5,8 +5,8 @@ using UnityEngine;
 public class ProjectileFire : MonoBehaviour
 {
 
-    public float m_Damage = 20f;
-    public float m_MaxLifeTime = 2f;
+    [SerializeField] private float m_Damage = 20f;
+    [SerializeField] private float m_MaxLifeTime = 2f;
 
     // Start is called before the first frame update
     void Start()
@@ -32,5 +32,9 @@ public class ProjectileFire : MonoBehaviour
         }
         Destroy(gameObject);
     }
-
+    public void IncreaseDamage(float damageIncrease)
+    {
+        m_Damage += damageIncrease;
+        gameObject.SetActive(true);
+    }
 }

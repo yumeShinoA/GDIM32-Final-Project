@@ -5,31 +5,34 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public float moveSpeed = 5f;
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] static public float debuffMoveSpeed;
 
-    public Rigidbody2D rb;
-    public Camera cam;
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Camera cam;
 
     Vector2 mousePos;
     Vector2 movement;
 
     private float activeMoveSpeed;
-    public float dashSpeed;
-    public float dashLength = .5f, dashCooldown = 1f;
+    [SerializeField] private float dashSpeed;
+    [SerializeField] private float dashLength = .5f, dashCooldown = 1f;
 
-    private float dashCounter;
-    private float dashCoolCounter;
+    [SerializeField] private float dashCounter;
+    [SerializeField] private float dashCoolCounter;
 
-    private bool dash = false;
+    [SerializeField] private bool dash = false;
 
     private void Start()
     {
         activeMoveSpeed = moveSpeed;
+        debuffMoveSpeed = 1f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //moveSpeed = activeMoveSpeed; // temp
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
@@ -43,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * activeMoveSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + movement * activeMoveSpeed * debuffMoveSpeed * Time.fixedDeltaTime);
 
         Vector2 lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
@@ -72,5 +75,16 @@ public class PlayerMovement : MonoBehaviour
         {
             dashCoolCounter -= Time.fixedDeltaTime;
         }
+    }
+    public void IncreaseSpeed(float speed)
+    {
+        moveSpeed += speed;
+        gameObject.SetActive(true);
+    }
+
+    public void dashRangeBuff(float dashbuff)
+    {
+        dashSpeed += dashbuff;
+        gameObject.SetActive(true);
     }
 }

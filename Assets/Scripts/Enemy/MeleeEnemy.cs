@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MeleeEnemy : Enemy
+public class MeleeEnemy : BaseEnemy
 {
     [SerializeField] private float attackRadius;
 
@@ -12,8 +12,8 @@ public class MeleeEnemy : Enemy
     [SerializeField] private Transform target;
     NavMeshAgent agent;
 
-    private Vector2 movement;
-    [SerializeField] private Vector3 dir;
+    private Vector2 movement; // unused
+    [SerializeField] private Vector3 dir; // unused
 
     private bool isInChaseRange;
     private bool isInAttackRange;
@@ -35,6 +35,7 @@ public class MeleeEnemy : Enemy
     {
         //anim.SetBool("Run", isInChaseRange);  Needs to link animation
 
+        // Check if player is in range
         isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, Player);
         isInAttackRange = Physics2D.OverlapCircle(transform.position, attackRadius, Player);
 
@@ -50,12 +51,12 @@ public class MeleeEnemy : Enemy
     private void OnCollisionStay2D(Collision2D other)
     {
         if(other.gameObject.tag == "Player") {
-            if(coolDown <= canAttack) {
+            if(coolDown <= canAttack) { // Attack player
                 // play attack animation here
                 other.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
                 canAttack = 0;
             } else {
-                canAttack += Time.deltaTime;
+                canAttack += Time.deltaTime; // enemy wait for cooldown
             }
         }
     }

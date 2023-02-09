@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class DeathMenuSCript : MonoBehaviour
 {
-    public GameObject gameOverMenu;
+    [SerializeField] private GameObject gameOverMenu;
     private void OnEnable()
     {
         PlayerHealth.OnPlayerDeath += OnDeathMenu;

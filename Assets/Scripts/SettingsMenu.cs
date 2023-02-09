@@ -6,11 +6,11 @@ using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
-    public AudioMixer audioMixer;
+    [SerializeField] private AudioMixer audioMixer;
 
     Resolution[] resolutions;
 
-    public TMPro.TMP_Dropdown resolutionDropdown;
+    [SerializeField] private TMPro.TMP_Dropdown resolutionDropdown;
 
     private void Start()
     {
@@ -36,7 +36,7 @@ public class SettingsMenu : MonoBehaviour
 
     public void SetVolume (float volume)
     {
-        audioMixer.SetFloat("volume", volume);
+        audioMixer.SetFloat("volume", Mathf.Log10(volume)*20);
     }
 
     public void SetFullscreen(bool isFullscreen)

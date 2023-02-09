@@ -28,6 +28,8 @@ public class EnemyHealth : MonoBehaviour
         current_hp -= damage;
         if (current_hp <= 0)
         {
+            Slime.diableDebuff(Slime.childObject); // temporary, will move to player stat script
+
             Destroy(gameObject);
         }
         hpbar.changeHealth(current_hp, max_hp);
