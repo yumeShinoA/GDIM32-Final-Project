@@ -6,25 +6,11 @@ using UnityEngine.AI;
 
 public class Slime : BaseEnemy
 {
-    [SerializeField] private float attackRadius;
-
-    [SerializeField] private bool shouldRotate; // Unused
-
-    [SerializeField] private Transform target;
-    NavMeshAgent agent;
-
-    private Vector2 movement; // Unused
-    [SerializeField] private Vector3 dir; // Unused
-
     private bool timerIsRunning;
     private float timeRemaining; // debuff timer
     [SerializeField] private float duration = 7f; // debuff time duration
     [SerializeField] private float debuffScale;
 
-    private bool isInChaseRange;
-    private bool isInAttackRange;
-
-    private float canAttack;
     [SerializeField] private GameObject PlayerChar;
     static public GameObject childObject;
     

@@ -5,20 +5,6 @@ using UnityEngine.AI;
 
 public class MeleeEnemy : BaseEnemy
 {
-    [SerializeField] private float attackRadius;
-
-    [SerializeField] private bool shouldRotate;
-
-    [SerializeField] private Transform target;
-    NavMeshAgent agent;
-
-    private Vector2 movement; // unused
-    [SerializeField] private Vector3 dir; // unused
-
-    private bool isInChaseRange;
-    private bool isInAttackRange;
-
-    private float canAttack;
 
     private void Start()
     {

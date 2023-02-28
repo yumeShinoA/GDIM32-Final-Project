@@ -5,22 +5,6 @@ using UnityEngine.AI;
 
 public class Ghost : BaseEnemy
 {
-    
-    [SerializeField] private float attackRadius;
-
-    [SerializeField] private bool shouldRotate;
-
-    [SerializeField] private Transform target;
-    NavMeshAgent agent;
-
-    private Vector2 movement;
-    [SerializeField] private Vector3 dir;
-
-    private bool isInChaseRange;
-    private bool isInAttackRange;
-
-    private float canAttack;
-
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
