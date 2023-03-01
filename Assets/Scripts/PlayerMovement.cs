@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("HorizontalPlayer1");
         verticalInput = Input.GetAxisRaw("VerticalPlayer1");
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+
         if (Input.GetKeyDown(KeyCode.Space) && dashCoolCounter <= 0) // If the dash cooldown is less down or equal to 0 then dash is available/usable
         {
             dash = true;

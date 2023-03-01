@@ -22,6 +22,8 @@ public class MeleePlayerController : MonoBehaviour {
     private float horizontalInput = 0f;
     private float verticalInput = 0f;
 
+    private bool facingRight = true;
+
     private void Start()
     {
         activeMoveSpeed = moveSpeed;
@@ -37,6 +39,14 @@ public class MeleePlayerController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.RightControl) && dashCoolCounter <= 0) // If the dash cooldown is less down or equal to 0 then dash is available/usable
         {
             dash = true;
+        }
+
+        if (horizontalInput > 0 && !facingRight)
+        {
+            Flip();
+        } else if (horizontalInput < 0 && facingRight)
+        {
+            Flip();
         }
 
     }
@@ -67,6 +77,13 @@ public class MeleePlayerController : MonoBehaviour {
             dashCoolCounter -= Time.fixedDeltaTime;
         }
     }
+
+    void Flip()
+    {
+        facingRight = !facingRight;
+        transform.Rotate(0f, 180f, 0f);
+    }
+
     public void IncreaseSpeed(float speed)
     {
         moveSpeed += speed;
