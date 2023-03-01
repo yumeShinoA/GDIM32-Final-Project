@@ -13882,37 +13882,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 864276758}
   m_CullTransparentMesh: 1
---- !u!1 &870429677
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 870429678}
-  m_Layer: 6
-  m_Name: AttackPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &870429678
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 870429677}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.498, y: 0.109, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 949472747}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &892424231
 GameObject:
   m_ObjectHideFlags: 0
@@ -14282,11 +14251,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1023624191}
-  attackPoint: {fileID: 870429678}
+  attackPoint: {fileID: 1535801035}
   attackRange: 0.5
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
+  attackDamage: 40
 --- !u!95 &1023624191
 Animator:
   serializedVersion: 5
@@ -15858,6 +15828,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4843c6294db27f84bb07ff202205e1ea, type: 3}
+--- !u!4 &1535801035 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 870429678, guid: 6b153f41b821d064db896e56163ffd24, type: 3}
+  m_PrefabInstance: {fileID: 3397619652039355879}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1634703309
 GameObject:
   m_ObjectHideFlags: 0
@@ -29439,6 +29414,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 870429678, guid: 6b153f41b821d064db896e56163ffd24, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1023624189, guid: 6b153f41b821d064db896e56163ffd24, type: 3}
       propertyPath: m_FlipX
       value: 0

@@ -14,7 +14,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.RightShift))
         {
             Attack();
         }
@@ -35,11 +35,5 @@ public class PlayerMeleeAttack : MonoBehaviour
                 Debug.Log("-1");
             }
         }
-
-        // Damage them
-        foreach(Collider2D enemy in hitEnemies)
-        //{
-            
-        //}
     }
 }
