@@ -28,7 +28,7 @@ public class PlayerMeleeAttack : MonoBehaviour
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
         // Damage them
-        //foreach(Collider2D enemy in hitEnemies)
+        foreach(Collider2D enemy in hitEnemies)
         //{
             
         //}
