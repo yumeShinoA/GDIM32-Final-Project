@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 movement = new Vector3(horizontalInput, verticalInput, 0f);
-        transform.position += movement.normalized * moveSpeed * debuffMoveSpeed * Time.fixedDeltaTime;
+        transform.position += movement.normalized * activeMoveSpeed * debuffMoveSpeed * Time.fixedDeltaTime;
 
         Vector2 lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;

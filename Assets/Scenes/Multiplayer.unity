@@ -29189,6 +29189,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 519420031}
     - target: {fileID: 7848440690627379499, guid: b40bb1be272123d479753ba174d76bf3, type: 3}
+      propertyPath: dashLength
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848440690627379499, guid: b40bb1be272123d479753ba174d76bf3, type: 3}
       propertyPath: playerNumber
       value: 1
       objectReference: {fileID: 0}

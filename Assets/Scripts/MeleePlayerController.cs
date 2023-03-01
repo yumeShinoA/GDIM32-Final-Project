@@ -45,7 +45,7 @@ public class MeleePlayerController : MonoBehaviour {
     {
         // Move the player horizontally and vertically based on the input values
         Vector3 movement = new Vector3(horizontalInput, verticalInput, 0f);
-        transform.position += movement.normalized * moveSpeed * debuffMoveSpeed * Time.fixedDeltaTime;
+        transform.position += movement.normalized * activeMoveSpeed * debuffMoveSpeed * Time.fixedDeltaTime;
 
         if (dash) // If statements allow the player to dash when having atleast one dashcounter, but setting dash at false when having 0 dashcounters
         {
