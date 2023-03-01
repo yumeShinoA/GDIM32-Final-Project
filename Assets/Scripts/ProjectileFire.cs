@@ -17,7 +17,7 @@ public class ProjectileFire : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Rigidbody2D targetRigidbody = collision.GetComponent<Rigidbody2D>();
-        if (targetRigidbody)
+        /*if (targetRigidbody)
         {
             PlayerHealth playerHealth = targetRigidbody.GetComponent<PlayerHealth>();
             if (playerHealth)
@@ -25,6 +25,7 @@ public class ProjectileFire : MonoBehaviour
                 playerHealth.TakeDamage(m_Damage);
             }
         }
+        */
         if (collision.gameObject.TryGetComponent<EnemyHealth>(out EnemyHealth enemy))
         {
             enemy.TakeDamage(m_Damage);
