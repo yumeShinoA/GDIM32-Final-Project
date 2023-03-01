@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
-{
+public class MeleePlayerController : MonoBehaviour {
 
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] static public float debuffMoveSpeed;
 
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Camera cam;
-
-    Vector2 mousePos;
-    Vector2 movement;
 
     private float activeMoveSpeed;
     [SerializeField] private float dashSpeed;
@@ -37,47 +32,38 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //moveSpeed = activeMoveSpeed; // temp
-
-
-        horizontalInput = Input.GetAxisRaw("HorizontalPlayer1");
-        verticalInput = Input.GetAxisRaw("VerticalPlayer1");
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        if (Input.GetKeyDown(KeyCode.Space) && dashCoolCounter <= 0) // If the dash cooldown is less down or equal to 0 then dash is available/usable
+        horizontalInput = Input.GetAxisRaw("HorizontalPlayer2");
+        verticalInput = Input.GetAxisRaw("VerticalPlayer2");
+        if (Input.GetKeyDown(KeyCode.RightControl) && dashCoolCounter <= 0) // If the dash cooldown is less down or equal to 0 then dash is available/usable
         {
             dash = true;
         }
+
     }
 
     private void FixedUpdate()
     {
+        // Move the player horizontally and vertically based on the input values
         Vector3 movement = new Vector3(horizontalInput, verticalInput, 0f);
         transform.position += movement.normalized * moveSpeed * debuffMoveSpeed * Time.fixedDeltaTime;
 
-        Vector2 lookDir = mousePos - rb.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
-        rb.rotation = angle;
-
-        if(dash) // If statements allow the player to dash when having atleast one dashcounter, but setting dash at false when having 0 dashcounters
+        if (dash) // If statements allow the player to dash when having atleast one dashcounter, but setting dash at false when having 0 dashcounters
         {
-            if(dashCoolCounter <= 0 && dashCounter <= 0)
-            {
+            if (dashCoolCounter <= 0 && dashCounter <= 0) {
                 activeMoveSpeed = dashSpeed;
                 dashCounter = dashLength;
                 dash = false;
             }
         }
-        if(dashCounter > 0)
-        {
+        if (dashCounter > 0) {
             dashCounter -= Time.fixedDeltaTime;
 
-            if(dashCounter <= 0)
-            {
+            if (dashCounter <= 0) {
                 activeMoveSpeed = moveSpeed;
                 dashCoolCounter = dashCooldown;
             }
         }
-        if(dashCoolCounter > 0)
-        {
+        if (dashCoolCounter > 0) {
             dashCoolCounter -= Time.fixedDeltaTime;
         }
     }
