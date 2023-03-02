@@ -29021,6 +29021,18 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 5272552500769165091}
+    - target: {fileID: 5958639837297063784, guid: 2292969ce83275e4f94b2302399bdccd, type: 3}
+      propertyPath: checkRadius
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5958639837297063784, guid: 2292969ce83275e4f94b2302399bdccd, type: 3}
+      propertyPath: Player.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5958639837297063784, guid: 2292969ce83275e4f94b2302399bdccd, type: 3}
+      propertyPath: maxChargeSize
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6552563464213196615, guid: 2292969ce83275e4f94b2302399bdccd, type: 3}
       propertyPath: m_RootOrder
       value: 5
