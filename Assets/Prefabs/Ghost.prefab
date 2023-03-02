@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6190497225595490539}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 6190497225641953084}
   - component: {fileID: 6190497225641953075}
   - component: {fileID: 6190497225641953074}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 6190497226153449282}
   - component: {fileID: 6190497226153449292}
   - component: {fileID: 6190497226153449283}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 6190497226372048964}
   - component: {fileID: 6190497226372048966}
   - component: {fileID: 6190497226372048965}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,8 +319,8 @@ GameObject:
   - component: {fileID: 6190497226556468773}
   - component: {fileID: 6190497226556468772}
   - component: {fileID: 6190497226556468763}
-  - component: {fileID: 1891815856}
-  m_Layer: 7
+  - component: {fileID: 6249268805042604849}
+  m_Layer: 0
   m_Name: Ghost
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -336,7 +336,7 @@ Transform:
   m_GameObject: {fileID: 6190497226556468762}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.9, y: -2.04, z: 1.6665772}
-  m_LocalScale: {x: -2.0872, y: 2.0872, z: 2.0872}
+  m_LocalScale: {x: -2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6190497225641953073}
@@ -381,11 +381,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1775077105
-  m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: b4bd359efc2ea1e4d8398e83ff36173e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.33333334}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -408,7 +408,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0031387508, y: -0.011509065}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -419,7 +419,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.64, y: 0.64}
+  m_Size: {x: 0.19009903, y: 0.17754379}
   m_EdgeRadius: 0
 --- !u!50 &6190497226556468773
 Rigidbody2D:
@@ -429,7 +429,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6190497226556468762}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -476,10 +476,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33cd050b6aa9e4e41a02f00532b04614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current_hp: 300
-  max_hp: 300
+  current_hp: 100
+  max_hp: 100
   hpbar: {fileID: 6190497225641953074}
---- !u!114 &1891815856
+--- !u!114 &6249268805042604849
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -497,10 +497,10 @@ MonoBehaviour:
   coolDown: 1
   Player:
     serializedVersion: 2
-    m_Bits: 64
-  attackRadius: 1
+    m_Bits: 0
+  attackRadius: 0
   target: {fileID: 0}
-  checkRadius: 15
+  checkRadius: 0
 --- !u!1 &6190497227417114825
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,7 +511,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6190497227417114826}
   - component: {fileID: 6190497227417114827}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
