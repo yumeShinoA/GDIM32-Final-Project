@@ -13266,6 +13266,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5272552500769165091}
     - target: {fileID: 6249268805042604849, guid: 893e5e048d5a4054f9f53ef7a337bb88, type: 3}
+      propertyPath: checkRadius
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6249268805042604849, guid: 893e5e048d5a4054f9f53ef7a337bb88, type: 3}
+      propertyPath: attackRadius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6249268805042604849, guid: 893e5e048d5a4054f9f53ef7a337bb88, type: 3}
       propertyPath: Player.m_Bits
       value: 64
       objectReference: {fileID: 0}
@@ -15562,7 +15570,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1682537999
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16655,7 +16663,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &2082304598
 MonoBehaviour:
