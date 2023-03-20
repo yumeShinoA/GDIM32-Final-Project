@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
 
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] static public float debuffMoveSpeed;
 
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Camera cam;
+    //[SerializeField]
+    private Camera cam;
 
     Vector2 mousePos;
     Vector2 movement;
@@ -29,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        cam = Camera.main;
         activeMoveSpeed = moveSpeed;
         debuffMoveSpeed = 1f;
     }
@@ -37,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //moveSpeed = activeMoveSpeed; // temp
-
+        if (!IsOwner) return;
 
         horizontalInput = Input.GetAxisRaw("HorizontalPlayer1");
         verticalInput = Input.GetAxisRaw("VerticalPlayer1");

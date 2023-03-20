@@ -5,6 +5,8 @@ using Unity.Services.Authentication;
 using Unity.Services.Core;
 using Unity.Services.Lobbies;
 using Unity.Services.Lobbies.Models;
+using Unity.Netcode;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class LobbyManager : MonoBehaviour
@@ -12,11 +14,13 @@ public class LobbyManager : MonoBehaviour
     public static LobbyManager Instance { get; private set; }
 
     public const string KEY_PLAYER_NAME = "PlayerName";
+    public const string KEY_START_GAME = "Start";
 
     public event EventHandler OnLeftLobby;
     public event EventHandler<LobbyEventArgs> OnJoinedLobby;
     public event EventHandler<LobbyEventArgs> OnJoinedLobbyUpdate;
     public event EventHandler<LobbyEventArgs> OnKickedFromLobby;
+    public event EventHandler<EventArgs> OnGameStarted;
     public class LobbyEventArgs : EventArgs
     {
         public Lobby lobby;
@@ -29,7 +33,7 @@ public class LobbyManager : MonoBehaviour
 
     private float heartbeatTimer;
     private float lobbyPollTimer;
-    private float refreshLobbyListTimer = 5f;
+    //private float refreshLobbyListTimer = 5f;
     private Lobby joinedLobby;
     private string playerName;
 
@@ -100,6 +104,18 @@ public class LobbyManager : MonoBehaviour
 
                     joinedLobby = null;
                 }
+
+                if (joinedLobby.Data[KEY_START_GAME].Value != "0")
+                {
+                    if(!IsLobbyHost())
+                    {
+                        TestRelay.Instance.JoinRelay(joinedLobby.Data[KEY_START_GAME].Value);
+                        Debug.Log("GAME STARTED");
+                        /*SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);*/
+                    }
+                    joinedLobby = null;
+                    OnGameStarted?.Invoke(this, EventArgs.Empty);
+                }
             }
         }
     }
@@ -143,7 +159,13 @@ public class LobbyManager : MonoBehaviour
         CreateLobbyOptions options = new CreateLobbyOptions
         {
             Player = player,
-            IsPrivate = false
+            IsPrivate = false,
+            Data = new Dictionary<string, DataObject>
+            {
+                {
+                    KEY_START_GAME, new DataObject(DataObject.VisibilityOptions.Member, "0")
+                }
+            }
         };
 
         Lobby lobby = await LobbyService.Instance.CreateLobbyAsync(playerName, maxPlayers, options);
@@ -288,6 +310,35 @@ public class LobbyManager : MonoBehaviour
                 await LobbyService.Instance.RemovePlayerAsync(joinedLobby.Id, playerId);
             }
             catch (LobbyServiceException e)
+            {
+                Debug.Log(e);
+            }
+        }
+    }
+
+    public async void StartGame()
+    {
+        if(IsLobbyHost())
+        {
+            try
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                Debug.Log("STARTGAME");
+                string relayCode = await TestRelay.Instance.CreateRelay();
+
+                Lobby lobby = await Lobbies.Instance.UpdateLobbyAsync(joinedLobby.Id, new UpdateLobbyOptions
+                {
+                    Data = new Dictionary<string, DataObject>
+                    {
+                        {
+                            KEY_START_GAME, new DataObject(DataObject.VisibilityOptions.Member, relayCode)
+                        }
+                    }
+                });
+
+                joinedLobby = lobby;
+                
+            } catch (LobbyServiceException e)
             {
                 Debug.Log(e);
             }

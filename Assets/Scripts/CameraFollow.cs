@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour {
 
-    [SerializeField] public Transform[] players;
+    [SerializeField] public GameObject[] players;
     public float DampTime = 0.2f;
     public float ScreenEdgeBuffer = 4f;
     public float MinSize = 6.5f;
@@ -15,6 +15,12 @@ public class CameraFollow : MonoBehaviour {
     private void Awake()
     {
         m_Camera = GetComponent<Camera>();
+    }
+
+    private void Start()
+    {
+        players = GameObject.FindGameObjectsWithTag("Player");
+        Debug.Log(players.Length);
     }
 
     // Update is called once per frame
@@ -42,7 +48,7 @@ public class CameraFollow : MonoBehaviour {
         {
             if (!players[i].gameObject.activeSelf)
                 continue;
-            averagePos += players[i].position;
+            averagePos += players[i].transform.position;
             numTargets++;
         }
         if (numTargets > 0)
@@ -66,7 +72,7 @@ public class CameraFollow : MonoBehaviour {
         {
             if (!players[i].gameObject.activeSelf)
                 continue;
-            Vector3 targetLocalPos = transform.InverseTransformPoint(players[i].position);
+            Vector3 targetLocalPos = transform.InverseTransformPoint(players[i].transform.position);
             Vector3 desiredPosToTarget = targetLocalPos - desiredLocalPos;
             size = Mathf.Max(size, Mathf.Abs(desiredPosToTarget.y));
             size = Mathf.Max(size, Mathf.Abs(desiredPosToTarget.x) / m_Camera.aspect);
@@ -74,5 +80,10 @@ public class CameraFollow : MonoBehaviour {
         size += ScreenEdgeBuffer;
         size = Mathf.Max(size, MinSize);
         return size;
+    }
+    public void GetAllPlayers()
+    {
+        players = GameObject.FindGameObjectsWithTag("Player");
+        Debug.Log(players.Length);
     }
 }

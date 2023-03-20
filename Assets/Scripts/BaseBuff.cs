@@ -37,6 +37,7 @@ public class BaseBuff : MonoBehaviour
 
     void Start()
     {
+        Player = GameObject.FindGameObjectWithTag("Player");
         playerhp = Player.GetComponent<PlayerHealth>();
         projectile = bullet.GetComponent<ProjectileFire>();
         playermovement = Player.GetComponent<PlayerMovement>();

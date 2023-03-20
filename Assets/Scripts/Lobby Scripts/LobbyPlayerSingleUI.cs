@@ -11,6 +11,7 @@ public class LobbyPlayerSingleUI : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI playerNameText;
     [SerializeField] private Button kickPlayerButton;
+    [SerializeField] private Button startGameButton;
 
 
     private Player player;
@@ -19,11 +20,17 @@ public class LobbyPlayerSingleUI : MonoBehaviour
     private void Awake()
     {
         kickPlayerButton.onClick.AddListener(KickPlayer);
+        startGameButton.onClick.AddListener(StartGame);
     }
 
     public void SetKickPlayerButtonVisible(bool visible)
     {
         kickPlayerButton.gameObject.SetActive(visible);
+    }
+
+    public void setStartButtonVisible(bool visible)
+    {
+        startGameButton.gameObject.SetActive(visible);
     }
 
     public void UpdatePlayer(Player player)
@@ -41,5 +48,9 @@ public class LobbyPlayerSingleUI : MonoBehaviour
         }
     }
 
+    private void StartGame()
+    {
+        LobbyManager.Instance.StartGame();
+    }
 
 }

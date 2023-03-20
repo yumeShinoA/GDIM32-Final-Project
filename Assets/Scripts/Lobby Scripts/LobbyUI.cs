@@ -74,6 +74,7 @@ public class LobbyUI : MonoBehaviour
                 LobbyManager.Instance.IsLobbyHost() &&
                 player.Id != AuthenticationService.Instance.PlayerId // Don't allow kick self
             );
+            lobbyPlayerSingleUI.setStartButtonVisible(LobbyManager.Instance.IsLobbyHost());
 
             lobbyPlayerSingleUI.UpdatePlayer(player);
         }
