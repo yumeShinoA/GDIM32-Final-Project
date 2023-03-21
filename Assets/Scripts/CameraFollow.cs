@@ -26,6 +26,10 @@ public class CameraFollow : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(players.Length == 0)
+        {
+            players = GameObject.FindGameObjectsWithTag("Player");
+        }
         Move();
 
         Zoom();

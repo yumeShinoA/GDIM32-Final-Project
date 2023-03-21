@@ -37,12 +37,21 @@ public class BaseBuff : MonoBehaviour
 
     void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
-        playerhp = Player.GetComponent<PlayerHealth>();
-        projectile = bullet.GetComponent<ProjectileFire>();
-        playermovement = Player.GetComponent<PlayerMovement>();
-        playershooting = Player.GetComponent<PlayerShooting>();
-        Player.SetActive(false);
+        
+        
+    }
+
+    public void Update()
+    {
+        if(!Player)
+        {
+            Player = GameObject.FindGameObjectWithTag("Player");
+            playerhp = Player.GetComponent<PlayerHealth>();
+            projectile = bullet.GetComponent<ProjectileFire>();
+            playermovement = Player.GetComponent<PlayerMovement>();
+            playershooting = Player.GetComponent<PlayerShooting>();
+            Player.SetActive(false);
+        }
     }
     public void addHealth()
     {
