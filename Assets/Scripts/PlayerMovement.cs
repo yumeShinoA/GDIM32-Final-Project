@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : NetworkBehaviour
 {
@@ -40,7 +41,8 @@ public class PlayerMovement : NetworkBehaviour
     void Update()
     {
         //moveSpeed = activeMoveSpeed; // temp
-        if (!IsOwner) return;
+        if(SceneManager.GetActiveScene().buildIndex==3)
+            if (!IsOwner) return;
 
         horizontalInput = Input.GetAxisRaw("HorizontalPlayer1");
         verticalInput = Input.GetAxisRaw("VerticalPlayer1");

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerShooting : NetworkBehaviour
 {
@@ -18,7 +19,8 @@ public class PlayerShooting : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!IsOwner) return;
+        if (SceneManager.GetActiveScene().buildIndex == 3)
+            if (!IsOwner) return;
         if (Input.GetButtonDown("Fire1"))
         {
             Shoot();
